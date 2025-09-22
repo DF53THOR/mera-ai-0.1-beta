@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+><!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mera Beta 0.1 - PC Bileşenleri Asistanı</title>
+    <title>Mera Beta 0.2 - PC Bileşenleri Asistanı</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -624,7 +624,7 @@
     <!-- Hoşgeldin Animasyonu -->
     <div id="welcome-animation" class="welcome-animation">
         <div class="animation-content">
-            <div class="logo">Mera β 0.1</div>
+            <div class="logo">Mera β 0.2</div>
             <h1>PC Bileşenleri Asistanına Hoşgeldiniz</h1>
             <div class="loading-bar">
                 <div class="loading-progress"></div>
@@ -635,7 +635,7 @@
     <div class="container" style="display: none;">
         <header>
             <div class="header-content">
-                <h1>Mera Beta 0.1 - PC Bileşenleri Asistanı</h1>
+                <h1>Mera Beta 0.2 - PC Bileşenleri Asistanı</h1>
                 <p>Hoşgeldiniz! Ben Mera, PC bileşenleri hakkında sorularınızı yanıtlayabilirim</p>
             </div>
             <div class="header-controls">
@@ -690,6 +690,93 @@
     <script>
         // Basit veritabanı - PC bileşenleri hakkında sorular ve cevaplar
         const knowledgeBase = [
+            // RTX 5000 SERİSİ SORULARI
+            {
+                question: "rtx 5090",
+                answer: "RTX 5090 henüz resmi olarak duyurulmadı, ancak söylentilere göre 2024 sonu veya 2025'te piyasaya sürülmesi bekleniyor. Beklenen özellikler: 32GB GDDR7 bellek, Blackwell mimarisi, DLSS 4 desteği ve şu anki modellere göre %60-70 daha yüksek performans."
+            },
+            {
+                question: "rtx 5080",
+                answer: "RTX 5080, RTX 5000 serisinin beklenen üst seviye modelidir. Tahmini özellikler: 20GB GDDR7 bellek, gelişmiş ray tracing performansı ve DLSS 4 teknolojisi. 4K gaming ve içerik oluşturma için optimize edilmiş olacak."
+            },
+            {
+                question: "rtx 5070",
+                answer: "RTX 5070, 1440p gaming için ideal olması beklenen bir model. Tahmini özellikler: 16GB GDDR7 bellek, gelişmiş enerji verimliliği ve RTX 4070'e göre %40-50 daha iyi performans. Orta-üst seviye oyuncular için mükemmel bir seçenek olabilir."
+            },
+            {
+                question: "rtx 5060",
+                answer: "RTX 5060, 1080p gaming için tasarlanmış bütçe dostu bir model olacak. Beklenen özellikler: 12GB GDDR7 bellek, DLSS 4 desteği ve RTX 4060'a göre %30 daha iyi performans. Enerji verimliliği önemli ölçüde artacak."
+            },
+            {
+                question: "rtx 5000 serisi ne zaman çıkacak",
+                answer: "RTX 5000 serisinin 2024 son çeyreğinde veya 2025 başında piyasaya sürülmesi bekleniyor. NVIDIA genellikle 2 yıllık periyotlarla yeni seriler çıkarıyor. Kesin tarih henüz açıklanmadı."
+            },
+            {
+                question: "rtx 5000 serisi fiyatları",
+                answer: "RTX 5000 serisi fiyatlarının mevcut serilere göre %15-20 daha yüksek olması bekleniyor. Tahmini fiyat aralıkları: RTX 5060: $400-500, RTX 5070: $600-700, RTX 5080: $900-1100, RTX 5090: $1500-1800"
+            },
+
+            // RTX 2000 SERİSİ SORULARI
+            {
+                question: "rtx 2080 ti",
+                answer: "RTX 2080 Ti, RTX 2000 serisinin flagsip modeliydi. 11GB GDDR6 bellek, 4352 CUDA çekirdeği ve Turing mimarisi. 1440p ve 4K gaming için hala yeterli performans sunuyor. Ray tracing teknolojisini destekleyen ilk kartlardandı."
+            },
+            {
+                question: "rtx 2070 super",
+                answer: "RTX 2070 Super, 1440p gaming için mükemmel bir karttı. 8GB GDDR6 bellek ve 2560 CUDA çekirdeği. RTX 2060 Super'a göre %15-20 daha iyi performans sunuyor. Günümüz oyunlarında hala iyi sonuçlar veriyor."
+            },
+            {
+                question: "rtx 2060",
+                answer: "RTX 2060, bütçe dostu ray tracing kartıydı. 6GB GDDR6 bellek ve 1920 CUDA çekirdeği. 1080p gaming için ideal ve DLSS desteği sayesinde daha yüksek çözünürlüklerde de oynatabiliyor."
+            },
+            {
+                question: "rtx 2000 serisi vs 3000 serisi",
+                answer: "RTX 3000 serisi, 2000 serisine göre belirgin performans avantajı sunar. RTX 3060, RTX 2070 Super ile benzer performansta. RTX 3000 serisi daha iyi ray tracing performansı, daha yüksek enerji verimliliği ve daha gelişmiş DLSS teknolojisine sahip."
+            },
+
+            // GÜNDELİK SORULAR
+            {
+                question: "bilgisayarım neden yavaş",
+                answer: "Bilgisayarınızın yavaşlamasının birçok nedeni olabilir: yetersiz RAM, dolu depolama alanı, eski sürücüler, arka planda çalışan gereksiz uygulamalar, virüs/malware, aşırı ısınma veya eski donanım. SSD'ye geçiş ve RAM artırımı en etkili çözümlerdir."
+            },
+            {
+                question: "oyun bilgisayarı kaç para",
+                answer: "Oyun bilgisayarı fiyatları kullanılacak bileşenlere göre değişir: \n• Temel seviye (1080p): 15-20 bin TL\n• Orta seviye (1440p): 25-35 bin TL\n• Üst seviye (4K): 40-60 bin TL\n• Profesyonel: 60+ bin TL\nFiyatlar bileşen kalitesine ve markasına göre değişiklik gösterebilir."
+            },
+            {
+                question: "hangi marka anakart iyi",
+                answer: "Kaliteli anakart markaları: ASUS, MSI, Gigabyte, ASRock. ASUS en güvenilir markalardan biridir. MSI iyi fiyat/performans oranı sunar. Gigabyte dayanıklılığı ile bilinir. Bütçenize ve ihtiyaçlarınıza göre seçim yapabilirsiniz."
+            },
+            {
+                question: "ssd mi hdd mi",
+                answer: "SSD kesinlikle daha iyi! SSD'ler HDD'lere göre 5-10 kat daha hızlıdır. İşletim sistemi, oyunlar ve sık kullanılan uygulamalar için SSD, büyük dosyalar ve yedekleme için HDD kullanabilirsiniz. SSD bilgisayarınızın performansını gözle görülür şekilde artırır."
+            },
+            {
+                question: "kaç inç monitör almalıyım",
+                answer: "Monitör boyutu kullanım amacınıza göre değişir: \n• 24 inç: Ofis ve temel kullanım\n• 27 inç: Oyun ve multimedya (en popüler)\n• 32 inç ve üzeri: Profesyonel işler ve immersif deneyim\nÇözünürlük de önemli: 1080p için 24 inç, 1440p için 27 inç, 4K için 32 inç ideal."
+            },
+            {
+                question: "bilgisayar toplamak zor mu",
+                answer: "Bilgisayar toplamak zor değil, dikkat ve özen gerektirir. YouTube'daki rehber videoları ile kolayca öğrenebilirsiniz. Önemli noktalar: bileşen uyumluluğu, statik elektrikten korunma ve kabloların doğru bağlanması. İlk defa toplayacaksanız deneyimli birinden yardım alabilirsiniz."
+            },
+            {
+                question: "oyun için kaç fps yeterli",
+                answer: "Minimum FPS değerleri: \n• 30 FPS: Oynanabilir seviye\n• 60 FPS: Akıcı deneyim\n• 120 FPS: Competitive gaming\n• 144+ FPS: Profesyonel seviye\nMonitörünüzün refresh rate'i de önemli. 60Hz monitörde 60 FPS, 144Hz'de 144 FPS idealdir."
+            },
+            {
+                question: "bilgisayarım neden ısınıyor",
+                answer: "Bilgisayar ısınmasının nedenleri: toz birikimi, yetersiz soğutma, termal macun ömrünün dolması, aşırı overclock, yetersiz kasa hava akışı. Çözümler: periyodik temizlik, kaliteli soğutucu, termal macun yenileme, kasa fanları ekleme."
+            },
+            {
+                question: "hangi işletim sistemi daha iyi",
+                answer: "Windows 11 en güncel ve güvenli sürüm. Windows 10 hala destekleniyor ve kararlı. Linux ücretsiz ve özelleştirilebilir, ancak oyun desteği sınırlı. macOS Apple kullanıcıları için ideal. Kullanım amacınıza göre seçim yapın."
+            },
+            {
+                question: "internetim neden yavaş",
+                answer: "İnternet yavaşlığı nedenleri: zayıf Wi-Fi sinyali, modem sorunları, ağ yoğunluğu, eski ağ kartı, arka planda indirme/yükleme. Çözümler: kablolu bağlantı, modem yenileme, Wi-Fi kanalı değiştirme, ağ kartı güncelleme."
+            },
+
+            // TEMEL BİLEŞEN SORULARI
             {
                 question: "işlemci nedir",
                 answer: "İşlemci (CPU), bir bilgisayarın beyni olarak kabul edilir. Tüm hesaplamaları yapar ve diğer bileşenleri yönetir. Örneğin Intel Core i7 veya AMD Ryzen 7 gibi modeller popülerdir."
@@ -730,118 +817,19 @@
                 question: "rgb nedir",
                 answer: "RGB (Red Green Blue), bilgisayar bileşenlerinde kullanılan aydınlatma sistemidir. Performans sağlamaz ama estetik görünüm için tercih edilir. Birçok bileşen yazılım aracılığıyla özelleştirilebilir RGB aydınlatmaya sahiptir."
             },
-            {
-                question: "rtx 3060",
-                answer: "NVIDIA RTX 3060, orta seviye bir oyun ekran kartıdır. 12GB GDDR6 belleğe sahiptir ve 1080p ve 1440p çözünürlüklerde rahatlıkla oyun oynatabilir. Ray tracing teknolojisini destekler."
-            },
-            {
-                question: "rx 6600",
-                answer: "AMD Radeon RX 6600, NVIDIA'nın RTX 3060'ına rakip olarak çıkarılmış bir ekran kartıdır. 8GB GDDR6 belleğe sahiptir. 1080p oyun performansı oldukça iyidir ve genellikle fiyat/performans oranı yüksektir."
-            },
-            {
-                question: "i5 13400",
-                answer: "Intel Core i5-13400, 10 çekirdekli (6 performans + 4 verimlilik) bir işlemcidir. 16 iş parçacığına sahiptir and oyunlar ile günlük kullanım için mükemmel bir performans sunar. DDR4 ve DDR5 bellekleri destekler."
-            },
-            {
-                question: "ryzen 5 5600x",
-                answer: "AMD Ryzen 5 5600X, 6 çekirdek 12 iş parçacıklı bir işlemcidir. 7nm mimarisi ile yüksek performans ve düşük güç tüketimi sunar. Oyun performansı oldukça iyidir ve soğutucu ile birlikte gelir."
-            },
-            {
-                question: "rtx 4090",
-                answer: "NVIDIA RTX 4090, şu anda piyasadaki en güçlü tüketici sınıfı ekran kartıdır. 24GB GDDR6X belleğe sahiptir ve 4K oyun, yapay zeka işlemleri ve profesyonel render işlemleri için idealdir. Yüksek güç tüketimi nedeniyle kaliteli bir güç kaynağı gerektirir."
-            },
-            {
-                question: "rx 7900 xtx",
-                answer: "AMD Radeon RX 7900 XTX, AMD'nin flagship ekran kartıdır. 24GB GDDR6 belleğe sahiptir ve NVIDIA'nın RTX 4080/4090 modelleriyle rekabet eder. Yüksek çözünürlüklü oyunlar ve içerik oluşturma için uygundur."
-            },
-            {
-                question: "i9 13900k",
-                answer: "Intel Core i9-13900K, Intel'in en güçlü tüketici sınıfı işlemcisidir. 24 çekirdek (8 performans + 16 verimlilik) ve 32 iş parçacığına sahiptir. Oyun, streaming ve içerik oluşturma için mükemmel performans sunar ancak yüksek güç tüketir ve güçlü soğutma gerektirir."
-            },
-            {
-                question: "ryzen 9 7950x",
-                answer: "AMD Ryzen 9 7950X, 16 çekirdek 32 iş parçacıklı bir işlemcidir. 5nm mimarisi ile yüksek performans sunar. Özellikle içerik oluşturma, render işlemleri ve profesyonel uygulamalar için idealdir. Yüksek saat hızları sayesinde oyun performansı da oldukça iyidir."
-            },
-            {
-                question: "32gb ram gerekli mi",
-                answer: "32GB RAM, günümüzde çoğu kullanıcı için gereğinden fazladır. Ancak profesyonel içerik oluşturma, video düzenleme, 3B modelleme, sanallaştırma veya çok sayıda uygulamayı aynı anda çalıştırma gibi işlemler yapıyorsanız 32GB RAM faydalı olacaktır. Sadece oyun ve ofis uygulamaları için 16GB genellikle yeterlidir."
-            },
-            {
-                question: "nvme ssd nedir",
-                answer: "NVMe SSD, geleneksel SATA SSD'lerden çok daha hızlı olan bir depolama birimidir. Doğrudan anakartın PCIe slotuna bağlanır ve çok yüksek okuma/yazma hızları sunar. Özellikle işletim sistemi, oyunlar ve büyük dosyalar için harika bir performans artışı sağlar."
-            },
-            {
-                question: "850w güç kaynağı yeterli mi",
-                answer: "850W güç kaynağı, çoğu yüksek performanslı sistem için yeterlidir. RTX 4080/4090 veya RX 7900 XTX gibi en üst düzey ekran kartları ve yüksek güç tüketen işlemciler kullanmıyorsanız 850W fazlasıyla yeterli olacaktır. Kaliteli markaları tercih etmek önemlidir."
-            },
-            {
-                question: "hangi anakartı almalıyım",
-                answer: "Hangi anakartı alacağınız, seçtiğiniz işlemciye ve ihtiyaçlarınıza bağlıdır. AMD işlemciler için B650 veya X670 chipsetli anakartlar, Intel işlemciler için B760 veya Z790 chipsetli anakartlar popüler seçeneklerdir. Bağlantı noktaları, RAM desteği, soğutma çözümleri ve genişleme yuvalarına dikkat edin."
-            },
-            {
-                question: "sıvı soğutma gerekli mi",
-                answer: "Sıvı soğutma, özellikle yüksek performanslı işlemciler için hava soğutmaya göre daha iyi soğutma performansı sağlar. Ancak çoğu kullanıcı için kaliteli bir hava soğutucu yeterli olacaktır. Sıvı soğutma daha pahalıdır ve kurulumu daha karmaşıktır, ancak estetik açıdan daha şık durur."
-            },
-            {
-                question: "144hz monitör ne işe yarar",
-                answer: "144Hz monitör, saniyede 144 kare gösterebilir. Standart 60Hz monitörlere göre çok daha akıcı bir görüntü sunar, özellikle oyunlarda büyük bir fark yaratır. Hareketli sahnelerde bulanıklık azalır ve daha responsive bir deneyim sunar."
-            },
-            {
-                question: "freesync vs g sync",
-                answer: "FreeSync AMD'nin, G-Sync ise NVIDIA'nın ekran kartı ve monitör senkronizasyon teknolojisidir. İkisi de ekran titremesini (screen tearing) önlemek için tasarlanmıştır. FreeSync genellikle daha uygun fiyatlı monitörlerde bulunurken, G-Sync daha pahalıdır ancak daha sıkı kalite kontrolünden geçer. G-Sync Compatible monitörler ise hem NVIDIA hem AMD ekran kartlarıyla çalışabilir."
-            },
-            {
-                question: "rtx 4060",
-                answer: "NVIDIA RTX 4060, 1080p gaming için tasarlanmış orta seviye bir ekran kartıdır. 8GB GDDR6 belleğe sahiptir ve DLSS 3 teknolojisi ile daha yüksek performans sunar. Enerji verimliliği önceki nesillere göre daha iyidir."
-            },
-            {
-                question: "rx 7600",
-                answer: "AMD Radeon RX 7600, 1080p gaming için tasarlanmış bir ekran kartıdır. 8GB GDDR6 belleğe sahiptir ve AMD'nin FSR teknolojisini destekler. Fiyat/performans oranı yüksektir."
-            },
-            {
-                question: "i7 13700k",
-                answer: "Intel Core i7-13700K, 16 çekirdek (8 performans + 8 verimlilik) ve 24 iş parçacıklı yüksek performanslı bir işlemcidir. Hem oyun hem de içerik oluşturma için mükemmel bir seçenektir."
-            },
-            {
-                question: "ryzen 7 7800x3d",
-                answer: "AMD Ryzen 7 7800X3D, 3D V-Cache teknolojisine sahip 8 çekirdek 16 iş parçacıklı bir işlemcidir. Özellikle oyun performansında çok güçlüdür ve yüksek FPS değerleri sunar."
-            },
-            {
-                question: "ddr4 ve ddr5 farkı",
-                answer: "DDR5, DDR4'e göre daha yüksek hız ve bant genişliği sunar. Ayrıca daha düşük güç tüketimi ve daha yüksek kapasite desteği vardır. Ancak DDR5 bellekler ve destekleyen anakartlar daha pahalıdır. DDR4 hala birçok kullanıcı için yeterli performans sunmaktadır."
-            },
-            {
-                question: "hangi windows sürümü daha iyi",
-                answer: "Windows 10 kararlılığı ile bilinirken, Windows 11 daha modern bir arayüz ve yeni özellikler sunar. Oyun performansı açısından aralarında çok büyük farklar yoktur. Donanımınız Windows 11 gereksinimlerini karşılıyorsa ve yeni arayüzü seviyorsanız Windows 11'i tercih edebilirsiniz."
-            },
-            {
-                question: "oyunlarda kasma neden olur",
-                answer: "Oyunlarda kasma; düşük FPS, yetersiz RAM, eski sürücüler, aşırı ısınma, arka planda çalışan uygulamalar veya yetersiz güç kaynağından kaynaklanabilir. Sorunu tespit etmek için sıcaklık, FPS ve CPU/GPU kullanımını izlemek faydalı olacaktır."
-            },
-            {
-                question: "overclock nedir",
-                answer: "Overclock, bileşenleri fabrika çıkışı hızlarının üzerinde çalıştırmaktır. Daha yüksek performans sağlar ancak daha fazla ısınma, güç tüketimi ve donanım ömründe azalmaya neden olabilir. Dikkatli yapılması ve yeterli soğutma gerektirir."
-            },
-            // YENİ KARŞILAŞTIRMA SORULARI
+
+            // KARŞILAŞTIRMA SORULARI
             {
                 question: "rtx 3060 vs 4060",
                 answer: "RTX 3060 vs RTX 4060 karşılaştırması:\n\n• RTX 3060: 12GB VRAM, daha iyi 1440p performansı, daha olgun sürücüler\n• RTX 4060: 8GB VRAM, DLSS 3 desteği, daha iyi enerji verimliliği, daha yeni mimari\n\nRTX 4060, DLSS 3 sayesinde bazı oyunlarda daha yüksek FPS sunar, ancak 8GB VRAM gelecek oyunlar için sınırlı olabilir. RTX 3060 ise daha fazla VRAM ile daha uzun vadeli bir çözüm olabilir."
             },
             {
-                question: "rx 6600 vs rx 7600",
-                answer: "RX 6600 vs RX 7600 karşılaştırması:\n\n• RX 6600: Mükemmel fiyat/performans, 8GB VRAM, olgun sürücüler\n• RX 7600: Daha yeni RDNA 3 mimarisi, daha iyi enerji verimliliği, gelişmiş medya motoru\n\nRX 7600, RX 6600'e göre yaklaşık %15-20 daha fazla performans sunar. Fiyat farkı performans artışına değiyorsa RX 7600, bütçe öncelikliyse RX 6600 tercih edilebilir."
+                question: "amd vs intel",
+                answer: "AMD vs Intel karşılaştırması:\n\n• AMD: Daha iyi çoklu çekirdek performansı, daha uygun fiyatlı, daha iyi entegre grafik (APU'lar)\n• Intel: Daha iyi tek çekirdek performansı, daha olgun platform, daha iyi overclock potansiyeli\n\nKullanım amacınıza göre seçim yapın: Oyun için Intel, içerik oluşturma için AMD daha iyi olabilir."
             },
             {
-                question: "i5 13400 vs ryzen 5 5600x",
-                answer: "i5-13400 vs Ryzen 5 5600X karşılaştırması:\n\n• i5-13400: 10 çekirdek (6P+4E), daha yeni mimari, entegre grafik, DDR5 desteği\n• Ryzen 5 5600X: 6 çekirdek, daha olgun platform, daha uygun fiyatlı anakartlar\n\ni5-13400 çoklu çekirdek performansında daha iyidir ve entegre grafiğe sahiptir. Ryzen 5 5600X ise daha uygun fiyatlı bir sistem kurmak isteyenler için iyi bir seçenektir."
-            },
-            {
-                question: "rtx 4070 vs rx 7800 xt",
-                answer: "RTX 4070 vs RX 7800 XT karşılaştırması:\n\n• RTX 4070: DLSS 3 ve Frame Generation, daha iyi ray tracing, NVIDIA Broadcast özellikleri\n• RX 7800 XT: Daha fazla VRAM (16GB), daha geniş bellek arabirimi, daha uygun fiyat\n\n1440p gaming için her ikisi de mükemmel seçeneklerdir. Ray tracing ve DLSS önemliyse RTX 4070, daha fazla VRAM ve daha iyi fiyat/performans istiyorsanız RX 7800 XT tercih edilebilir."
-            },
-            {
-                question: "ddr4 vs ddr5",
-                answer: "DDR4 vs DDR5 karşılaştırması:\n\n• DDR4: Daha olgun, daha uygun fiyatlı, düşük gecikme\n• DDR5: Daha yüksek hız, daha yüksek bant genişliği, daha iyi enerji verimliliği\n\nDDR5, özellikle entegre grafikli işlemcilerde ve profesyonel uygulamalarda belirgin performans avantajı sağlar. Ancak DDR4 hala çoğu oyun ve günlük kullanım için yeterli performans sunar ve daha uygun fiyatlıdır."
+                question: "nvidia vs amd",
+                answer: "NVIDIA vs AMD ekran kartı karşılaştırması:\n\n• NVIDIA: Daha iyi ray tracing, DLSS teknolojisi, daha iyi sürücü desteği, CUDA çekirdekleri\n• AMD: Daha iyi fiyat/performans, daha fazla VRAM, FreeSync desteği, açık kaynak sürücüler\n\nRay tracing ve AI özellikleri önemliyse NVIDIA, bütçe dostu çözüm istiyorsanız AMD tercih edilebilir."
             }
         ];
 
@@ -858,7 +846,7 @@
                 
                 // Ana içerik gösterildikten sonra ilk mesajı ekle
                 setTimeout(() => {
-                    addMessageToChat("Merhaba! Hoşgeldiniz. Ben Mera Beta 0.1, PC bileşenleri hakkında sorularınızı yanıtlayabilen bir yapay zeka asistanıyım. Size nasıl yardımcı olabilirim?", 'ai');
+                    addMessageToChat("Merhaba! Hoşgeldiniz. Ben Mera Beta 0.2, PC bileşenleri hakkında sorularınızı yanıtlayabilen bir yapay zeka asistanıyım. RTX 5000 serisi, 2000 serisi ve gündelik PC soruları hakkında bilgi alabilirsiniz!", 'ai');
                 }, 300);
             }, 3000);
             
@@ -987,7 +975,7 @@
                 messageHeader.classList.add('message-header');
                 
                 const senderName = document.createElement('div');
-                senderName.textContent = sender === 'user' ? 'Siz' : 'Mera Beta 0.1';
+                senderName.textContent = sender === 'user' ? 'Siz' : 'Mera Beta 0.2';
                 
                 const messageActions = document.createElement('div');
                 messageActions.classList.add('message-actions');
@@ -1040,7 +1028,7 @@
                 
                 // Bazı basit selamlama durumları
                 if (normalizedMessage.includes('merhaba') || normalizedMessage.includes('selam') || normalizedMessage.includes('hello') || normalizedMessage.includes('hi')) {
-                    return "Merhaba! Size PC bileşenleri hakkında nasıl yardımcı olabilirim? Hangi bileşenler hakkında bilgi almak istersiniz?";
+                    return "Merhaba! Ben Mera Beta 0.2. Size RTX 5000 serisi, 2000 serisi ve diğer PC bileşenleri hakkında nasıl yardımcı olabilirim?";
                 }
                 
                 if (normalizedMessage.includes('teşekkür') || normalizedMessage.includes('sağ ol') || normalizedMessage.includes('thanks')) {
@@ -1056,7 +1044,7 @@
                 }
                 
                 // Eğer eşleşme bulunamazsa
-                return "Üzgünüm, bu sorunuzu anlayamadım. Lütfen başka bir şekilde sorun veya başka bir PC bileşeni konusu hakkında soru sorun. 'Tüm Sorular' butonuna tıklayarak sorabileceğiniz soruları görebilirsiniz.";
+                return "Üzgünüm, bu sorunuzu anlayamadım. Lütfen başka bir şekilde sorun veya 'Tüm Sorular' butonuna tıklayarak sorabileceğiniz soruları görebilirsiniz. RTX 5000 serisi, PC bileşenleri veya gündelik sorular hakkında bilgi alabilirsiniz.";
             }
         });
     </script>
