@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mera Beta 0.2 - PC Bileşenleri Asistanı</title>
+    <title>Mera Beta 0.3 - PC Bileşenleri Asistanı</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -311,26 +311,27 @@
             line-height: 1.5;
         }
 
-        /* Yazım Animasyonu */
-        .typing-animation {
+        /* Düşünüyor Animasyonu */
+        .thinking-animation {
             display: flex;
             align-items: center;
             justify-content: center;
             height: 20px;
+            margin-bottom: 10px;
         }
 
-        .typing-animation span {
+        .thinking-animation span {
             height: 8px;
             width: 8px;
-            background: white;
+            background: var(--primary-color);
             border-radius: 50%;
             margin: 0 2px;
             animation: typing 1.4s infinite ease-in-out;
         }
 
-        .typing-animation span:nth-child(1) { animation-delay: 0s; }
-        .typing-animation span:nth-child(2) { animation-delay: 0.2s; }
-        .typing-animation span:nth-child(3) { animation-delay: 0.4s; }
+        .thinking-animation span:nth-child(1) { animation-delay: 0s; }
+        .thinking-animation span:nth-child(2) { animation-delay: 0.2s; }
+        .thinking-animation span:nth-child(3) { animation-delay: 0.4s; }
 
         @keyframes typing {
             0%, 60%, 100% { transform: translateY(0); }
@@ -520,6 +521,31 @@
             color: var(--accent-color);
         }
 
+        /* Öneri Butonları */
+        .suggestions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .suggestion-btn {
+            padding: 8px 15px;
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+            color: var(--text-color);
+        }
+
+        .suggestion-btn:hover {
+            background: var(--secondary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
         /* Kaydırma çubuğu stilleri */
         .chat-box::-webkit-scrollbar,
         .modal-body::-webkit-scrollbar {
@@ -596,6 +622,10 @@
             .loading-bar {
                 width: 250px;
             }
+            
+            .suggestions {
+                justify-content: center;
+            }
         }
 
         /* Bildirim */
@@ -624,7 +654,7 @@
     <!-- Hoşgeldin Animasyonu -->
     <div id="welcome-animation" class="welcome-animation">
         <div class="animation-content">
-            <div class="logo">Mera β 0.2</div>
+            <div class="logo">Mera β 0.3</div>
             <h1>PC Bileşenleri Asistanına Hoşgeldiniz</h1>
             <div class="loading-bar">
                 <div class="loading-progress"></div>
@@ -635,8 +665,8 @@
     <div class="container" style="display: none;">
         <header>
             <div class="header-content">
-                <h1>Mera Beta 0.2 - PC Bileşenleri Asistanı</h1>
-                <p>Hoşgeldiniz! Ben Mera, PC bileşenleri hakkında sorularınızı yanıtlayabilirim</p>
+                <h1>Mera Beta 0.3 - PC Bileşenleri Asistanı</h1>
+                <p>Gelişmiş özelliklerle daha akıllı asistan deneyimi</p>
             </div>
             <div class="header-controls">
                 <button class="theme-toggle" id="theme-toggle">
@@ -649,6 +679,11 @@
         <div class="chat-container">
             <div id="chat-box" class="chat-box">
                 <!-- İlk mesaj JavaScript ile eklenecek -->
+            </div>
+
+            <!-- Öneri Butonları -->
+            <div id="suggestions" class="suggestions">
+                <!-- Öneriler JavaScript ile eklenecek -->
             </div>
 
             <div class="input-area">
@@ -688,7 +723,7 @@
     <div class="notification" id="notification">Mesaj kopyalandı!</div>
 
     <script>
-        // Basit veritabanı - PC bileşenleri hakkında sorular ve cevaplar
+        // Gelişmiş veritabanı - PC bileşenleri hakkında sorular ve cevaplar
         const knowledgeBase = [
             // RTX 5000 SERİSİ SORULARI
             {
@@ -719,7 +754,7 @@
             // GÜNDELİK SOHBET SORULARI
             {
                 question: "nasılsın",
-                answer: "Teşekkür ederim! Ben bir yapay zeka asistanıyım, her zaman iyiyim. Size nasıl yardımcı olabilirim? PC bileşenleri hakkında sorularınız mı var?"
+                answer: "Teşekkür ederim! Ben Mera Beta 0.3, her zaman iyiyim. Size nasıl yardımcı olabilirim? PC bileşenleri hakkında sorularınız mı var?"
             },
             {
                 question: "ne yapıyorsun",
@@ -727,7 +762,7 @@
             },
             {
                 question: "sen kimsin",
-                answer: "Ben Mera Beta 0.2! PC bileşenleri konusunda size yardımcı olmak için tasarlanmış bir yapay zeka asistanıyım. Ekran kartları, işlemciler, anakartlar ve diğer bileşenler hakkında sorularınızı yanıtlayabilirim."
+                answer: "Ben Mera Beta 0.3! PC bileşenleri konusunda size yardımcı olmak için tasarlanmış gelişmiş bir yapay zeka asistanıyım. Ekran kartları, işlemciler, anakartlar ve diğer bileşenler hakkında sorularınızı yanıtlayabilirim."
             },
             {
                 question: "kaç yaşındasın",
@@ -819,275 +854,458 @@
                 question: "rx 6600",
                 answer: "AMD Radeon RX 6600, NVIDIA'nın RTX 3060'ına rakip olarak çıkarılmış bir ekran kartıdır. 8GB GDDR6 belleğe sahiptir. 1080p oyun performansı oldukça iyidir ve genellikle fiyat/performans oranı yüksektir."
             },
-            // ... Diğer sorular buraya eklenecek (kısaltma için gösterilmiyor)
-        ];
+            {
+                question: "intel i5 mi i7 mi",
+                answer: "İhtiyaçlarınıza göre değişir: \n• İ5: Günlük kullanım, ofis, hafif oyunlar için yeterli\n• İ7: Oyun, video düzenleme, 3D modelleme için ideal\n• İ9: Profesyonel işler, streaming, heavy gaming için\nBütçeniz yetiyorsa i7 daha iyi gelecek performans sunar."
+            },
+            {
+                question: "amd mi intel mi",
+                answer: "Her ikisi de iyi seçenekler: \n• AMD: Genellikle daha iyi fiyat/performans, daha fazla çekirdek\n• Intel: Daha yüksek tek çekirdek performansı, daha iyi oyun performansı\nKullanım amacınıza ve bütçenize göre seçim yapmalısınız."
+            },
+            {
+                question: "ram ne işe yarar",
+                answer: "RAM (Random Access Memory), bilgisayarın geçici hafızasıdır. Açık programlar, oyunlar ve işletim sistemi tarafından kullanılır. Daha fazla RAM, daha fazla programı aynı anda sorunsuz çalıştırmanızı sağlar. 8GB temel, 16GB oyun, 32GB+ profesyonel işler için önerilir."
+            },
+            {
+                question: "ssd alırken nelere dikkat etmeli",
+                answer: "SSD alırken dikkat edilmesi gerekenler: \n• Kapasite (250GB-4TB)\n• Okuma/Yazma hızları\n• NVMe vs SATA (NVMe daha hızlı)\n• TBW (Toplam Yazma Dayanıklılığı)\n• Marka güvenilirliği\n• Garanti süresi"
+            },
+            {
+                question: "oyun için hangi işlemci",
+                answer: "Oyun için işlemci seçerken: \n• Yüksek saat hızı önemli\n• 6 çekirdek ve üzeri tercih edin\n• Intel i5/i7 veya AMD Ryzen 5/7\n• Soğutma performansına dikkat edin\n• Bütçenize uygun en iyi işlemciyi seçin"
+            },
+            {
+                question: "ekran kartı alırken nelere dikkat etmeli",
+                answer: "Ekran kartı alırken dikkat edilmesi gerekenler: \n• Bellek miktarı (8GB+ önerilir)\n• Bellek hızı ve türü\n• Soğutma performansı\n• Güç tüketimi\n• Fiyat/performans oranı\n• Marka ve garanti\n• Kasanıza uygun boyut"
+            },
+            {
+                question: "psu nedir",
+                answer: "PSU (Power Supply Unit), bilgisayarın güç kaynağıdır. Tüm bileşenlere elektrik sağlar. Kaliteli bir PSU seçmek önemlidir: \n• Watt değeri (sistem ihtiyacına göre)\n• 80 Plus sertifikası (verimlilik)\n• Marka güvenilirliği\n• Modüler kablolama\n• Garanti süresi"
+            },
+            {
+                question: "overclock nedir",
+                answer: "Overclock, bileşenleri fabrika ayarlarından daha yüksek hızlarda çalıştırmaktır. Performans artışı sağlar ancak: \n• Daha fazla ısınma\n• Güç tüketiminde artış\n• Donanım ömründe kısalma\n• Garanti kaybı riskleri vardır. Dikkatli yapılmalıdır."
+            },
 
-        // Sayfa yüklendiğinde çalışacak fonksiyon
-        document.addEventListener('DOMContentLoaded', function() {
-            // Hoşgeldin animasyonunu göster
-            const welcomeAnimation = document.getElementById('welcome-animation');
-            const container = document.querySelector('.container');
-            
-            // 3 saniye sonra hoşgeldin animasyonunu kapat ve ana içeriği göster
-            setTimeout(() => {
-                welcomeAnimation.style.display = 'none';
-                container.style.display = 'block';
+            // YENİ SORULAR
+            {
+                question: "ddr5 ram almalı mıyım",
+                answer: "DDR5 RAM, DDR4'e göre daha yüksek hız ve verimlilik sunar. Ancak: \n• Anakart desteği gerektirir\n• Fiyatları daha yüksek\n• Gerçek dünya performans farkı bazı uygulamalarda sınırlı\n• Yeni sistem toplayacaksanız DDR5 mantıklı, mevcut sistemde DDR4 yeterli."
+            },
+            {
+                question: "sıvı soğutma gerekli mi",
+                answer: "Sıvı soğutma: \n• Üst seviye işlemciler için ideal\n• Daha iyi ısı dağılımı\n• Daha sessiz çalışma\n• Kurulumu daha zor\n• Havalı soğutucular çoğu kullanıcı için yeterli\n• Overclock yapacaksanız sıvı soğutma önerilir."
+            },
+            {
+                question: "oyunlarda kasma nasıl önlenir",
+                answer: "Oyunlarda kasma önleme yöntemleri: \n• Sürücüleri güncel tutun\n• Arka plan uygulamalarını kapatın\n• Oyun ayarlarını optimize edin\n• Isınmayı kontrol edin\n• RAM ve VRAM kullanımını izleyin\n• SSD'ye yükleyin\n• Windows güç ayarlarını yüksek performansa getirin"
+            },
+            {
+                question: "ekran kartı sürücüsü nasıl güncellenir",
+                answer: "Ekran kartı sürücüsü güncelleme: \n• NVIDIA: GeForce Experience uygulaması\n• AMD: Radeon Software uygulaması\n• Manuel: Üretici websitesinden indirin\n• DDU ile eski sürücüleri temizleyin\n• Düzenli güncelleme performans ve stabilite için önemli"
+            },
+            {
+                question: "bilgisayarım açılmıyor",
+                answer: "Bilgisayar açılmama sorunları: \n• Güç kaynağını kontrol edin\n• Kabloları kontrol edin\n• RAM'leri temizleyin\n• Ekran kartını kontrol edin\n• BIOS pilini değiştirin\n• Donanımları teker teker test edin\n• Profesyonel yardım alın"
+            }
+        ];
+            // Öneri motoru için sorular
+            const suggestionQuestions = [
+                "rtx 5090 nasıl bir ekran kartı alınırmı",
+                "rtx 5080 nasıl bir ekran kartı alınırmı", 
+                "bilgisayarım neden yavaş",
+                "hangi işlemci daha iyi",
+                "ssd mi hdd mi",
+                "oyun için kaç fps yeterli",
+                "ddr5 ram almalı mıyım",
+                "ekran kartı alırken nelere dikkat etmeli"
+            ];
+
+            // Sayfa yüklendiğinde çalışacak fonksiyon
+            document.addEventListener('DOMContentLoaded', function() {
+                // Hoşgeldin animasyonunu göster
+                const welcomeAnimation = document.getElementById('welcome-animation');
+                const container = document.querySelector('.container');
                 
-                // Ana içerik gösterildikten sonra ilk mesajı ekle
+                // 3 saniye sonra hoşgeldin animasyonunu kapat ve ana içeriği göster
                 setTimeout(() => {
-                    addMessageToChat("Merhaba! Hoşgeldiniz. Ben Mera Beta 0.2, PC bileşenleri hakkında sorularınızı yanıtlayabilen bir yapay zeka asistanıyım. RTX 5000 serisi, 2000 serisi ve diğer PC bileşenleri hakkında bilgi alabilirsiniz! Nasılsınız?", 'ai');
-                }, 300);
-            }, 3000);
-            
-            const userInput = document.getElementById('user-input');
-            const sendBtn = document.getElementById('send-btn');
-            const chatBox = document.getElementById('chat-box');
-            const allQuestionsBtn = document.getElementById('all-questions-btn');
-            const modal = document.getElementById('questions-modal');
-            const closeBtn = document.querySelector('.close');
-            const questionsList = document.getElementById('questions-list');
-            const questionSearch = document.getElementById('question-search');
-            const themeToggle = document.getElementById('theme-toggle');
-            const notification = document.getElementById('notification');
-            
-            // Tema değiştirme
-            themeToggle.addEventListener('click', function() {
-                document.body.classList.toggle('dark-mode');
-                const icon = themeToggle.querySelector('i');
-                if (document.body.classList.contains('dark-mode')) {
-                    icon.classList.remove('fa-moon');
-                    icon.classList.add('fa-sun');
-                } else {
-                    icon.classList.remove('fa-sun');
-                    icon.classList.add('fa-moon');
-                }
-            });
-            
-            // Tüm sorular modalını açma/kapama
-            allQuestionsBtn.addEventListener('click', function() {
-                modal.style.display = 'block';
-                populateQuestionsList();
-            });
-            
-            closeBtn.addEventListener('click', function() {
-                modal.style.display = 'none';
-            });
-            
-            window.addEventListener('click', function(event) {
-                if (event.target == modal) {
-                    modal.style.display = 'none';
-                }
-            });
-            
-            // Soru arama
-            questionSearch.addEventListener('input', function() {
-                populateQuestionsList(this.value.toLowerCase());
-            });
-            
-            // Soru listesini doldur
-            function populateQuestionsList(searchTerm = '') {
-                questionsList.innerHTML = '';
-                knowledgeBase.forEach(item => {
-                    if (searchTerm === '' || item.question.toLowerCase().includes(searchTerm)) {
-                        const questionItem = document.createElement('div');
-                        questionItem.classList.add('question-item');
-                        
-                        const questionText = document.createElement('div');
-                        questionText.textContent = item.question;
-                        
-                        const favoriteBtn = document.createElement('button');
-                        favoriteBtn.classList.add('favorite-btn');
-                        favoriteBtn.innerHTML = '<i class="far fa-star"></i>';
-                        
-                        questionItem.appendChild(questionText);
-                        questionItem.appendChild(favoriteBtn);
-                        
-                        questionItem.addEventListener('click', function() {
-                            userInput.value = item.question;
-                            modal.style.display = 'none';
-                            handleUserMessage();
-                        });
-                        
-                        questionsList.appendChild(questionItem);
+                    welcomeAnimation.style.display = 'none';
+                    container.style.display = 'block';
+                    
+                    // Ana içerik gösterildikten sonra ilk mesajı ekle
+                    setTimeout(() => {
+                        addMessageToChat("Merhaba! Hoşgeldiniz. Ben Mera Beta 0.3, PC bileşenleri hakkında sorularınızı yanıtlayabilen gelişmiş bir yapay zeka asistanıyım. Sohbet geçmişinizi kaydediyor, favori sorular oluşturabiliyor ve bağlam hafızamla daha akıllı yanıtlar verebiliyorum!", 'ai');
+                        updateSuggestions();
+                        loadChatHistory();
+                    }, 300);
+                }, 3000);
+                
+                const userInput = document.getElementById('user-input');
+                const sendBtn = document.getElementById('send-btn');
+                const chatBox = document.getElementById('chat-box');
+                const allQuestionsBtn = document.getElementById('all-questions-btn');
+                const modal = document.getElementById('questions-modal');
+                const closeBtn = document.querySelector('.close');
+                const questionsList = document.getElementById('questions-list');
+                const questionSearch = document.getElementById('question-search');
+                const themeToggle = document.getElementById('theme-toggle');
+                const notification = document.getElementById('notification');
+                const suggestionsContainer = document.getElementById('suggestions');
+                
+                // Sohbet geçmişi ve bağlam hafızası
+                let chatContext = [];
+                const MAX_CONTEXT_LENGTH = 10;
+                
+                // Tema değiştirme
+                themeToggle.addEventListener('click', function() {
+                    document.body.classList.toggle('dark-mode');
+                    const icon = themeToggle.querySelector('i');
+                    if (document.body.classList.contains('dark-mode')) {
+                        icon.classList.remove('fa-moon');
+                        icon.classList.add('fa-sun');
+                    } else {
+                        icon.classList.remove('fa-sun');
+                        icon.classList.add('fa-moon');
                     }
                 });
-            }
-            
-            // Gönder butonuna tıklama olayı
-            sendBtn.addEventListener('click', handleUserMessage);
-            
-            // Enter tuşuna basma olayı
-            userInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    handleUserMessage();
+                
+                // Tüm sorular modalını açma/kapama
+                allQuestionsBtn.addEventListener('click', function() {
+                    modal.style.display = 'block';
+                    populateQuestionsList();
+                });
+                
+                closeBtn.addEventListener('click', function() {
+                    modal.style.display = 'none';
+                });
+                
+                window.addEventListener('click', function(event) {
+                    if (event.target == modal) {
+                        modal.style.display = 'none';
+                    }
+                });
+                
+                // Soru arama
+                questionSearch.addEventListener('input', function() {
+                    populateQuestionsList(this.value.toLowerCase());
+                });
+                
+                // Soru listesini doldur
+                function populateQuestionsList(searchTerm = '') {
+                    questionsList.innerHTML = '';
+                    knowledgeBase.forEach((item, index) => {
+                        if (searchTerm === '' || item.question.toLowerCase().includes(searchTerm)) {
+                            const questionItem = document.createElement('div');
+                            questionItem.classList.add('question-item');
+                            
+                            const questionText = document.createElement('div');
+                            questionText.textContent = item.question;
+                            
+                            const favoriteBtn = document.createElement('button');
+                            favoriteBtn.classList.add('favorite-btn');
+                            favoriteBtn.innerHTML = '<i class="far fa-star"></i>';
+                            favoriteBtn.title = 'Favorilere ekle';
+                            
+                            // Favori kontrolü
+                            const favorites = getFavorites();
+                            if (favorites.includes(index)) {
+                                favoriteBtn.classList.add('active');
+                                favoriteBtn.innerHTML = '<i class="fas fa-star"></i>';
+                            }
+                            
+                            favoriteBtn.addEventListener('click', function(e) {
+                                e.stopPropagation();
+                                toggleFavorite(index);
+                                populateQuestionsList(searchTerm);
+                            });
+                            
+                            questionItem.appendChild(questionText);
+                            questionItem.appendChild(favoriteBtn);
+                            
+                            questionItem.addEventListener('click', function() {
+                                userInput.value = item.question;
+                                modal.style.display = 'none';
+                                handleUserMessage();
+                            });
+                            
+                            questionsList.appendChild(questionItem);
+                        }
+                    });
                 }
-            });
-            
-            function handleUserMessage() {
-                const message = userInput.value.trim();
-                if (message === '') return;
                 
-                // Gönder butonunda yükleme animasyonunu göster
-                const btnText = sendBtn.querySelector('.btn-text');
-                const btnLoading = sendBtn.querySelector('.btn-loading');
-                btnText.style.display = 'none';
-                btnLoading.style.display = 'block';
+                // Öneri butonlarını güncelle
+                function updateSuggestions() {
+                    suggestionsContainer.innerHTML = '';
+                    suggestionQuestions.forEach(question => {
+                        const suggestionBtn = document.createElement('button');
+                        suggestionBtn.classList.add('suggestion-btn');
+                        suggestionBtn.textContent = question;
+                        suggestionBtn.addEventListener('click', function() {
+                            userInput.value = question;
+                            handleUserMessage();
+                        });
+                        suggestionsContainer.appendChild(suggestionBtn);
+                    });
+                }
                 
-                // Kullanıcı mesajını sohbet kutusuna ekle
-                addMessageToChat(message, 'user');
+                // Favori yönetimi
+                function getFavorites() {
+                    return JSON.parse(localStorage.getItem('meraFavorites')) || [];
+                }
                 
-                // Yapay zeka yanıtını al
-                const response = getAIResponse(message);
-                
-                // Yanıtı gecikmeli olarak sohbet kutusuna ekle (doğal hissettirmek için)
-                setTimeout(() => {
-                    addMessageToChat(response, 'ai');
+                function toggleFavorite(index) {
+                    const favorites = getFavorites();
+                    const favoriteIndex = favorites.indexOf(index);
                     
-                    // Yükleme animasyonunu kapat
-                    btnText.style.display = 'block';
-                    btnLoading.style.display = 'none';
+                    if (favoriteIndex === -1) {
+                        favorites.push(index);
+                        showNotification('Favorilere eklendi!');
+                    } else {
+                        favorites.splice(favoriteIndex, 1);
+                        showNotification('Favorilerden kaldırıldı!');
+                    }
+                    
+                    localStorage.setItem('meraFavorites', JSON.stringify(favorites));
+                }
+                
+                // Sohbet geçmişi yükleme
+                function loadChatHistory() {
+                    const history = JSON.parse(localStorage.getItem('meraChatHistory')) || [];
+                    history.forEach(item => {
+                        addMessageToChat(item.question, 'user', false);
+                        addMessageToChat(item.answer, 'ai', false);
+                    });
+                }
+                
+                // Sohbet geçmişi kaydetme
+                function saveToHistory(question, answer) {
+                    const history = JSON.parse(localStorage.getItem('meraChatHistory')) || [];
+                    history.push({
+                        question: question,
+                        answer: answer,
+                        timestamp: new Date().toISOString()
+                    });
+                    
+                    // Son 50 mesajı sakla
+                    if (history.length > 50) {
+                        history.splice(0, history.length - 50);
+                    }
+                    
+                    localStorage.setItem('meraChatHistory', JSON.stringify(history));
+                }
+                
+                // Bağlam hafızası güncelleme
+                function updateContext(question, answer) {
+                    chatContext.push({ role: 'user', content: question });
+                    chatContext.push({ role: 'assistant', content: answer });
+                    
+                    if (chatContext.length > MAX_CONTEXT_LENGTH * 2) {
+                        chatContext = chatContext.slice(-MAX_CONTEXT_LENGTH * 2);
+                    }
+                }
+                
+                // Gönder butonuna tıklama olayı
+                sendBtn.addEventListener('click', handleUserMessage);
+                
+                // Enter tuşuna basma olayı
+                userInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        handleUserMessage();
+                    }
+                });
+                
+                function handleUserMessage() {
+                    const message = userInput.value.trim();
+                    if (message === '') return;
+                    
+                    // Gönder butonunda yükleme animasyonunu göster
+                    const btnText = sendBtn.querySelector('.btn-text');
+                    const btnLoading = sendBtn.querySelector('.btn-loading');
+                    btnText.style.display = 'none';
+                    btnLoading.style.display = 'block';
+                    
+                    // Kullanıcı mesajını sohbet kutusuna ekle
+                    addMessageToChat(message, 'user');
+                    
+                    // "Düşünülüyor..." mesajını göster
+                    const thinkingMessage = addThinkingMessage();
+                    
+                    // Yapay zeka yanıtını al
+                    setTimeout(() => {
+                        const response = getAIResponse(message);
+                        
+                        // "Düşünülüyor..." mesajını kaldır
+                        thinkingMessage.remove();
+                        
+                        // Yanıtı sohbet kutusuna ekle
+                        addMessageToChat(response, 'ai');
+                        
+                        // Geçmişe kaydet ve bağlamı güncelle
+                        saveToHistory(message, response);
+                        updateContext(message, response);
+                        
+                        // Yükleme animasyonunu kapat
+                        btnText.style.display = 'block';
+                        btnLoading.style.display = 'none';
+                        
+                        // Sohbet kutusunu en aşağı kaydır
+                        chatBox.scrollTop = chatBox.scrollHeight;
+                        
+                        // Önerileri güncelle
+                        updateSuggestions();
+                    }, 2000);
+                    
+                    // Giriş alanını temizle
+                    userInput.value = '';
+                }
+                
+                function addThinkingMessage() {
+                    const thinkingElement = document.createElement('div');
+                    thinkingElement.classList.add('message', 'ai-message');
+                    thinkingElement.style.opacity = '0.7';
+                    
+                    const thinkingHeader = document.createElement('div');
+                    thinkingHeader.classList.add('message-header');
+                    thinkingHeader.textContent = 'Mera Beta 0.3 düşünüyor...';
+                    
+                    const thinkingAnimation = document.createElement('div');
+                    thinkingAnimation.classList.add('thinking-animation');
+                    thinkingAnimation.innerHTML = '<span></span><span></span><span></span>';
+                    
+                    thinkingElement.appendChild(thinkingHeader);
+                    thinkingElement.appendChild(thinkingAnimation);
+                    chatBox.appendChild(thinkingElement);
+                    chatBox.scrollTop = chatBox.scrollHeight;
+                    
+                    return thinkingElement;
+                }
+                
+                function addMessageToChat(message, sender, animate = true) {
+                    const messageElement = document.createElement('div');
+                    messageElement.classList.add('message');
+                    messageElement.classList.add(sender + '-message');
+                    
+                    if (!animate) {
+                        messageElement.style.animation = 'none';
+                        messageElement.style.opacity = '1';
+                        messageElement.style.transform = 'translateY(0)';
+                    }
+                    
+                    const messageHeader = document.createElement('div');
+                    messageHeader.classList.add('message-header');
+                    
+                    const senderName = document.createElement('div');
+                    senderName.textContent = sender === 'user' ? 'Siz' : 'Mera Beta 0.3';
+                    
+                    const messageActions = document.createElement('div');
+                    messageActions.classList.add('message-actions');
+                    
+                    if (sender === 'ai') {
+                        const copyBtn = document.createElement('button');
+                        copyBtn.classList.add('message-action-btn');
+                        copyBtn.innerHTML = '<i class="far fa-copy"></i>';
+                        copyBtn.title = 'Kopyala';
+                        copyBtn.addEventListener('click', function() {
+                            navigator.clipboard.writeText(message);
+                            showNotification('Mesaj kopyalandı!');
+                        });
+                        messageActions.appendChild(copyBtn);
+                    }
+                    
+                    messageHeader.appendChild(senderName);
+                    messageHeader.appendChild(messageActions);
+                    
+                    const messageText = document.createElement('p');
+                    messageText.textContent = message;
+                    
+                    messageElement.appendChild(messageHeader);
+                    messageElement.appendChild(messageText);
+                    chatBox.appendChild(messageElement);
                     
                     // Sohbet kutusunu en aşağı kaydır
                     chatBox.scrollTop = chatBox.scrollHeight;
-                }, 1500);
-                
-                // Giriş alanını temizle
-                userInput.value = '';
-            }
-            
-            function addMessageToChat(message, sender) {
-                const messageElement = document.createElement('div');
-                messageElement.classList.add('message');
-                messageElement.classList.add(sender + '-message');
-                
-                const messageHeader = document.createElement('div');
-                messageHeader.classList.add('message-header');
-                
-                const senderName = document.createElement('div');
-                senderName.textContent = sender === 'user' ? 'Siz' : 'Mera Beta 0.2';
-                
-                const messageActions = document.createElement('div');
-                messageActions.classList.add('message-actions');
-                
-                if (sender === 'ai') {
-                    const copyBtn = document.createElement('button');
-                    copyBtn.classList.add('message-action-btn');
-                    copyBtn.innerHTML = '<i class="far fa-copy"></i>';
-                    copyBtn.title = 'Kopyala';
-                    copyBtn.addEventListener('click', function() {
-                        navigator.clipboard.writeText(message);
-                        showNotification('Mesaj kopyalandı!');
-                    });
-                    messageActions.appendChild(copyBtn);
+                    
+                    return messageElement;
                 }
                 
-                messageHeader.appendChild(senderName);
-                messageHeader.appendChild(messageActions);
+                function showNotification(text) {
+                    notification.textContent = text;
+                    notification.classList.add('show');
+                    
+                    setTimeout(() => {
+                        notification.classList.remove('show');
+                    }, 2000);
+                }
                 
-                const messageText = document.createElement('p');
-                messageText.textContent = message;
-                
-                messageElement.appendChild(messageHeader);
-                messageElement.appendChild(messageText);
-                chatBox.appendChild(messageElement);
-                
-                // Sohbet kutusunu en aşağı kaydır
-                chatBox.scrollTop = chatBox.scrollHeight;
-            }
-            
-            function showNotification(text) {
-                notification.textContent = text;
-                notification.classList.add('show');
-                
-                setTimeout(() => {
-                    notification.classList.remove('show');
-                }, 2000);
-            }
-            
-            function getAIResponse(userMessage) {
-                // Gelen mesajı küçük harfe çevir ve soru işaretlerini kaldır
-                const normalizedMessage = userMessage.toLowerCase().replace('?', '').trim();
-                
-                // Bilgi tabanında eşleşen bir soru var mı kontrol et
-                for (const item of knowledgeBase) {
-                    // Soru tam eşleşme veya içerme kontrolü
-                    if (normalizedMessage === item.question || normalizedMessage.includes(item.question)) {
-                        return item.answer;
+                function getAIResponse(userMessage) {
+                    // Bağlam hafızasını kullanarak daha akıllı yanıtlar
+                    const context = chatContext.map(msg => `${msg.role}: ${msg.content}`).join('\n');
+                    const fullMessage = context + '\nuser: ' + userMessage;
+                    
+                    // Gelen mesajı küçük harfe çevir ve soru işaretlerini kaldır
+                    const normalizedMessage = userMessage.toLowerCase().replace('?', '').trim();
+                    
+                    // Bilgi tabanında eşleşen bir soru var mı kontrol et
+                    for (const item of knowledgeBase) {
+                        // Soru tam eşleşme veya içerme kontrolü
+                        if (normalizedMessage === item.question || normalizedMessage.includes(item.question)) {
+                            return item.answer;
+                        }
                     }
+                    
+                    // Bağlamsal yanıtlar
+                    if (chatContext.length > 0) {
+                        const lastMessage = chatContext[chatContext.length - 1].content;
+                        
+                        if (lastMessage.includes('teşekkür') && normalizedMessage.includes('rica')) {
+                            return "Her zaman buradayım! Başka sorularınız varsa sormaktan çekinmeyin. 😊";
+                        }
+                        
+                        if (lastMessage.includes('nasılsın') && normalizedMessage.includes('iyiyim')) {
+                            return "Harika! Size nasıl yardımcı olabilirim? PC bileşenleri hakkında merak ettiğiniz bir şey var mı?";
+                        }
+                    }
+                    
+                    // Gündelik sohbet için özel kontroller
+                    if (normalizedMessage.includes("nasılsın") || normalizedMessage.includes("nasilsin") || normalizedMessage.includes("iyi misin")) {
+                        return knowledgeBase.find(item => item.question === "nasılsın").answer;
+                    }
+                    
+                    if (normalizedMessage.includes("ne yapıyorsun") || normalizedMessage.includes("napiyorsun") || normalizedMessage.includes("ne yapiyorsun")) {
+                        return knowledgeBase.find(item => item.question === "ne yapıyorsun").answer;
+                    }
+                    
+                    if (normalizedMessage.includes("sen kimsin") || normalizedMessage.includes("kimsin")) {
+                        return knowledgeBase.find(item => item.question === "sen kimsin").answer;
+                    }
+                    
+                    // RTX 5000 serisi için özel kontrol
+                    if (normalizedMessage.includes("rtx 5090") || normalizedMessage.includes("5090")) {
+                        return knowledgeBase.find(item => item.question === "rtx 5090 nasıl bir ekran kartı alınırmı").answer;
+                    }
+                    if (normalizedMessage.includes("rtx 5080") || normalizedMessage.includes("5080")) {
+                        return knowledgeBase.find(item => item.question === "rtx 5080 nasıl bir ekran kartı alınırmı").answer;
+                    }
+                    if (normalizedMessage.includes("rtx 5070") || normalizedMessage.includes("5070")) {
+                        return knowledgeBase.find(item => item.question === "rtx 5070 nasıl bir ekran kartı alınırmı").answer;
+                    }
+                    if (normalizedMessage.includes("rtx 5060") || normalizedMessage.includes("5060")) {
+                        return knowledgeBase.find(item => item.question === "rtx 5060 nasıl bir ekran kartı alınırmı").answer;
+                    }
+                    
+                    // Bazı basit selamlama durumları
+                    if (normalizedMessage.includes('merhaba') || normalizedMessage.includes('selam') || normalizedMessage.includes('hello') || normalizedMessage.includes('hi')) {
+                        return "Merhaba! Ben Mera Beta 0.3. Size RTX 5000 serisi ve diğer PC bileşenleri hakkında nasıl yardımcı olabilirim?";
+                    }
+                    
+                    if (normalizedMessage.includes('teşekkür') || normalizedMessage.includes('sağ ol') || normalizedMessage.includes('thanks') || normalizedMessage.includes('teşekkürler')) {
+                        return "Rica ederim! Başka bir konuda daha yardımcı olabilirim. Sorularınızı bekliyorum!";
+                    }
+                    
+                    // Eğer eşleşme bulunamazsa
+                    return "Üzgünüm, bu sorunuzu anlayamadım. Lütfen başka bir şekilde sorun veya 'Tüm Sorular' butonuna tıklayarak sorabileceğiniz soruları görebilirsiniz. RTX 5000 serisi veya diğer PC bileşenleri hakkında sorular sorabilirsiniz!";
                 }
-                
-                // Gündelik sohbet için özel kontroller
-                if (normalizedMessage.includes("nasılsın") || normalizedMessage.includes("nasilsin") || normalizedMessage.includes("iyi misin")) {
-                    return knowledgeBase.find(item => item.question === "nasılsın").answer;
-                }
-                
-                if (normalizedMessage.includes("ne yapıyorsun") || normalizedMessage.includes("napiyorsun") || normalizedMessage.includes("ne yapiyorsun")) {
-                    return knowledgeBase.find(item => item.question === "ne yapıyorsun").answer;
-                }
-                
-                if (normalizedMessage.includes("sen kimsin") || normalizedMessage.includes("kimsin")) {
-                    return knowledgeBase.find(item => item.question === "sen kimsin").answer;
-                }
-                
-                if (normalizedMessage.includes("kaç yaşındasın") || normalizedMessage.includes("yaşın kaç") || normalizedMessage.includes("kac yasındasın")) {
-                    return knowledgeBase.find(item => item.question === "kaç yaşındasın").answer;
-                }
-                
-                if (normalizedMessage.includes("nerelisin") || normalizedMessage.includes("nereden")) {
-                    return knowledgeBase.find(item => item.question === "nerelisin").answer;
-                }
-                
-                if (normalizedMessage.includes("akıllı") || normalizedMessage.includes("zeki")) {
-                    return knowledgeBase.find(item => item.question === "ne kadar akıllısın").answer;
-                }
-                
-                if (normalizedMessage.includes("oyun") && (normalizedMessage.includes("oynuyor") || normalizedMessage.includes("oyna"))) {
-                    return knowledgeBase.find(item => item.question === "hangi oyunları oynuyorsun").answer;
-                }
-                
-                if (normalizedMessage.includes("kim yaptı") || normalizedMessage.includes("kim geliştirdi")) {
-                    return knowledgeBase.find(item => item.question === "seni kim yaptı").answer;
-                }
-                
-                // RTX 5000 serisi için özel kontrol
-                if (normalizedMessage.includes("rtx 5090") || normalizedMessage.includes("5090")) {
-                    return knowledgeBase.find(item => item.question === "rtx 5090 nasıl bir ekran kartı alınırmı").answer;
-                }
-                if (normalizedMessage.includes("rtx 5080") || normalizedMessage.includes("5080")) {
-                    return knowledgeBase.find(item => item.question === "rtx 5080 nasıl bir ekran kartı alınırmı").answer;
-                }
-                if (normalizedMessage.includes("rtx 5070") || normalizedMessage.includes("5070")) {
-                    return knowledgeBase.find(item => item.question === "rtx 5070 nasıl bir ekran kartı alınırmı").answer;
-                }
-                if (normalizedMessage.includes("rtx 5060") || normalizedMessage.includes("5060")) {
-                    return knowledgeBase.find(item => item.question === "rtx 5060 nasıl bir ekran kartı alınırmı").answer;
-                }
-                
-                // Bazı basit selamlama durumları
-                if (normalizedMessage.includes('merhaba') || normalizedMessage.includes('selam') || normalizedMessage.includes('hello') || normalizedMessage.includes('hi')) {
-                    return "Merhaba! Ben Mera Beta 0.2. Size RTX 5000 serisi, 2000 serisi ve diğer PC bileşenleri hakkında nasıl yardımcı olabilirim? Nasılsınız?";
-                }
-                
-                if (normalizedMessage.includes('teşekkür') || normalizedMessage.includes('sağ ol') || normalizedMessage.includes('thanks') || normalizedMessage.includes('teşekkürler')) {
-                    return "Rica ederim! Başka bir konuda daha yardımcı olabilirim. Sorularınızı bekliyorum!";
-                }
-                
-                if (normalizedMessage.includes('günaydın')) {
-                    return "Günaydın! PC bileşenleri hakkında size nasıl yardımcı olabilirim? Bugün hangi konuda bilgi almak istersiniz?";
-                }
-                
-                if (normalizedMessage.includes('iyi geceler')) {
-                    return "İyi geceler! Yarın görüşmek üzere, sorularınızı bekliyorum. Tatlı rüyalar! 🌙";
-                }
-                
-                if (normalizedMessage.includes('hoşça kal') || normalizedMessage.includes('güle güle') || normalizedMessage.includes('bye')) {
-                    return "Hoşça kalın! Ben buradayım, ihtiyacınız olduğunda tekrar sorabilirsiniz. 👋";
-                }
-                
-                // Eğer eşleşme bulunamazsa
-                return "Üzgünüm, bu sorunuzu anlayamadım. Lütfen başka bir şekilde sorun veya 'Tüm Sorular' butonuna tıklayarak sorabileceğiniz soruları görebilirsiniz. RTX 5000 serisi, PC bileşenleri veya gündelik sohbet için sorular sorabilirsiniz!";
-            }
-        });
-    </script>
-</body>
-</html>
+            });
+        </script>
+    </body>
+    </html>
